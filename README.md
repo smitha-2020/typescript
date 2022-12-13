@@ -1,4 +1,4 @@
-# Create a simple banking applications
+# Create a simple banking applicationss
 
 Implement the following classes, interface, and codes (you can decide which file to put each type). All the properties must be kept private, while you can make the methods as public
 
