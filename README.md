@@ -65,11 +65,8 @@ Implement the following classes, interface, and codes (you can decide which file
 
 4. Interface Transaction
 
-<<<<<<< HEAD
     - It has 2 properties, a number called `amount` and a Date called `date`. `date` refers to the time that transaction has been created.
-=======
     - It has 2 properties, a number `amount`, and a Date called `date`. `date` refers to the time that transaction has been created.
->>>>>>> 77658ed3e4a0ed3abd3d54d0a9eb5371659a199b
 
 Run the following codes in `bank.ts`and share your results and findings in the Slack channel
 

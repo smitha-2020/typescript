@@ -1,56 +1,13 @@
-import { List } from "./types/ecommerce";
-
-interface userinfo{
-    "id": number,
-    "email": string,
-    "password": string,
-    "name": string,
-    "role": string,
-    "avatar": string
-
-}
-interface userErrorApi extends Error{
-    "statusCode": number,
-    "message":string,
-    "error": string
-}
-
-interface productsinfo
-{
-        "id": number,
-        "title":string ,
-        "price": number,
-        "description": string
-}
-interface productErrorApi{
-    "statusCode": number,
-    "message": string,
-    "error": string
-}
-
- 
+"use strict";
+exports.__esModule = true;
+var ecommerce_1 = require("./types/ecommerce");
 /* Fix all the possible bugs you might find in the codes below */
-
-const users = new List()
-const products = new List()
-
-
-const main = async() =>{
-    const getusers = await users.fetchAll("https://api.escuelajs.co/api/v1/users")
-    if ("statusCode" in getusers) {
-        console.log("error")
-    } else {
-        console.log("error")
-    }
-}
-
-main();
-
-// products.fetchAll<productsinfo|productErrorApi>("https://api.escuelajs.co/api/v1/products")
-// console.log(typeof users)
-
+var users = new ecommerce_1.List();
+var products = new ecommerce_1.List();
+users.fetchAll("https://api.escuelajs.co/api/v1/users");
+products.fetchAll("https://api.escuelajs.co/api/v1/products");
+console.log(typeof users);
 // console.log(users.sortList("desc")) //Expect to see users array in new order of id decreasing
-
 // /** find user by email.
 //  * Take a parameter of type string.
 //  * Return a found user or null*/
@@ -59,7 +16,6 @@ main();
 // }
 // const foundUser = findUserByEmail("john@mail.com")
 // console.log(foundUser) //expect to see user with email "john@mail.com" in the console
-
 // /** Find all products with titles matched the search, case insentitive. 
 //  * Take a parameter of type string.
 //  * Return an array
@@ -69,7 +25,6 @@ main();
 // }
 // const foundProducts = findProductsByText("shirt")
 // console.log(foundProducts) //expect to see an array of all found products
-
 // const testPush1 = users.push(
 //     {
 //         id: 1,
@@ -88,7 +43,6 @@ main();
 //         avatar: "https://api.lorem.space/image/face?w=640&h=480&r=6751"
 //     }
 // )
-
 // const testPush2 = users.push(
 //     {
 //         id: 90,
@@ -107,8 +61,6 @@ main();
 //         avatar: "https://api.lorem.space/image/face?w=640&h=480&r=6751"
 //     }
 // )
-
 // console.log(testPush1) // expect to see 0
 // console.log(testPush2) // expect to see 1
-
 // console.log(users) // expect too see 2 more users added in the end of array
