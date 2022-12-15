@@ -4,24 +4,25 @@
 // import { Customers } from "./customer";
 
 import { Branchs } from "./common";
-import { Transactions } from "./common";
 import { Customers } from "./common";
 import { Transaction } from "./transaction";
-
+import { Transactions } from "./common";
 
 export class Bank{
     name:string
     branches:Array<Branchs>
+
+    
     constructor(name:string,branches?:Array<Branchs>){
         this.name=name;
         this.branches = [];  
     }
-    branchExists(branchArray:Array<Branchs>,newBranch:Branchs):number{
-        const branchExists=this.branches.filter((branchname)=>{return branchname.name === newBranch.name});
-        return branchExists.length;
-    }
+    // branchExists(branchArray:Array<Branchs>,newBranch:Branchs):number{
+    //     const branchExists=this.branches.filter((branchname)=>{return branchname.name === newBranch.name});
+    //     return branchExists.length;
+    // }
     addBranch(newbranch:Branchs):boolean{
-        if(this.branchExists(this.branches,newbranch)>0){
+        if(this.checkBranch(newbranch)>0){
             return false;
         }else{
             [...this.branches]=[...this.branches,newbranch];
@@ -31,13 +32,16 @@ export class Bank{
     addCustomer(branchname:Branchs,customername:Customers){
         return branchname.customers?.push(customername)?true:false;
     }
+
     addCustomerTransaction(branchname:Branchs,customerid:number, amount:number){
         const t:Transactions= new Transaction(amount);
         // console.log(t)
-        const transactions:Array<Transactions> = [];
+        let transactions:Array<Transactions> = [];
         transactions.push(t)  
         this.branches.map((branch) => {
-            if(branch.name == branchname.name)
+            // console.log(branch);
+            // console.log(branchname.name)
+            if(branch.name === branchname.name)
             {
                 branch.customers?.map((customer)=>{
                     if(customer.getId() === customerid){
@@ -59,29 +63,35 @@ export class Bank{
         
     }
     checkBranch(branch:Branchs){
-      console.log(this.branches)
+        const branchExists=this.branches.filter((branchname)=>{return branchname.name === branch.name});
+        return branchExists.length;
     }
     listCustomers(branch:Branchs,checkbranch:boolean){
         const arrBranch:string[] = []
-        if(checkbranch){
-            this.branches.map((branchname)=>{
-                if(branchname.name == branch.name){
-                    branchname.customers?.forEach((element)=>{
-                        element.getTransactions()?.map((transact)=>{
-                            console.log(transact)
-                        })
-                    });
-                }
-            });
-        }
+    
     this.branches.map((branchname)=>{
              arrBranch.push(branchname.name)
              //console.log(branchname)
     });
+    if(checkbranch){
+        this.branches.map((branchname)=>{
+            if(branchname.name === branch.name){
+                console.log(branchname)
+                branchname.customers?.forEach((element)=>{
+                        console.log(element.getName())
+                    element.getTransactions()?.map((transact)=>{
+                        console.log(transact)
+                    })
+                });
+            }
+        });
+    }
        if(arrBranch.indexOf(branch.name)>=0){
             return true;
        }else{
            return  false;
        }
+       
     }
+    
 }
