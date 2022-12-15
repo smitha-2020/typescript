@@ -28,11 +28,9 @@ export class List<T extends Entity> extends Array<T> {
         switch(order) {
             case 'desc': {
                 return this.sort((a, b) => b.id - a.id)
-                break;
             }
             case 'asc': {
                 return this.sort((a, b) => b.id - a.id)
-                break;
             }
             default: {
                break;
@@ -44,42 +42,18 @@ export class List<T extends Entity> extends Array<T> {
     id does not exist. Only add all the items to the array if every item satisfies the condition.
     Return 1 if can push all new items to the array, otherwise return 0 */
 
-
-    // push(...items: T[]): number {
-    //     function checkAvailability(arr:T[], id:number) { //From mozilla docs
-    //         return arr.some(arrVal => id === arrVal.id);
-    //     }
-        
-    //     const arrResult =items.map(newItem => checkAvailability(this, newItem.id)) 
-    //     console.log(arrResult)
-    //     if(!arrResult.includes(true)){
-    //         return 1;
-    //     }else{
-    //         for(let i=0; i<items.length;i++){
-    //             this[this.length] = items[i]
-    //         }
-    //         return 0;
-    //    }
-    // }
-
-
     push(...items: T[]): number {
-        
-        let result = items.map(item => this.some(original => original.id === item.id))
-        //let result = items.map(item => console.log(item))
-        console.log(result[1])
-
-        //console.log(result)
-
-      
-        // if(result.includes(true)) {
-        //     return 0
-        // }
-        // for(let i=0; i<items.length;i++){
-        //     this[this.length] = items[i]
-        // }
-        return 1
+        function checkAvailability(arr:T[], id:number) { //From mozilla docs - Thank you Jeremias! :-)
+            return arr.some(arrVal => id === arrVal.id);
+        }
+        if (this.map(newItem => checkAvailability(this, newItem.id)).includes(true)) {
+            return 0;
+        } else {
+            for (let i = 0; i < items.length; i++) {
+                this[this.length] = items[i];
+            }
+            return 1;
+        }
     }
 
 }
-
