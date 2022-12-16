@@ -55,7 +55,6 @@ export class List<T extends Entity> extends Array<T> {
             }
             return 1;
         }
-        // return 0;
     }
 
 }
