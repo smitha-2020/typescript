@@ -46,7 +46,8 @@ export class List<T extends Entity> extends Array<T> {
         function checkAvailability(arr:T[], id:number) { //From mozilla docs - Thank you Jeremias! :-)
             return arr.some(arrVal => id === arrVal.id);
         }
-        if (this.map(newItem => checkAvailability(this, newItem.id)).includes(true)) {
+        console.log(items)
+        if (this.flat().map(newItem => checkAvailability(items, newItem.id)).includes(true)) {
             return 0;
         } else {
             for (let i = 0; i < items.length; i++) {
@@ -54,6 +55,7 @@ export class List<T extends Entity> extends Array<T> {
             }
             return 1;
         }
+        // return 0;
     }
 
 }

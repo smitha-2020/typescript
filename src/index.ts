@@ -43,10 +43,30 @@ async function app() {
     }
     const foundProducts = findProductsByText("Ergonomic Frozen Shoes")
     //console.log(foundProducts) //expect to see an array of all found products
+ 
 
-    const testPush1 = users.push(
+//     const testPush1 = users.push(
+//         {
+//             id: 1,
+//             email: "william@gmail.com",
+//             password: "william",
+//             name: "William",
+//             role: "customer",
+//             avatar: "https://api.lorem.space/image/face?w=640&h=480&r=6751"
+//         },
+//         {
+//             id: 90,
+//             email: "henry@gmail.com",
+//             password: "henry",
+//             name: "Henry",
+//             role: "customer",
+//             avatar: "https://api.lorem.space/image/face?w=640&h=480&r=6751"
+//         }
+//    )
+
+    const testPush2 = users.push(
         {
-            id: 1,
+            id: 90,
             email: "william@gmail.com",
             password: "william",
             name: "William",
@@ -54,7 +74,7 @@ async function app() {
             avatar: "https://api.lorem.space/image/face?w=640&h=480&r=6751"
         },
         {
-            id: 90,
+            id: 100,
             email: "henry@gmail.com",
             password: "henry",
             name: "Henry",
@@ -63,27 +83,8 @@ async function app() {
         }
     )
 
-    // const testPush2 = users.push(
-    //     {
-    //         id: 90,
-    //         email: "william@gmail.com",
-    //         password: "william",
-    //         name: "William",
-    //         role: "customer",
-    //         avatar: "https://api.lorem.space/image/face?w=640&h=480&r=6751"
-    //     },
-    //     {
-    //         id: 100,
-    //         email: "henry@gmail.com",
-    //         password: "henry",
-    //         name: "Henry",
-    //         role: "customer",
-    //         avatar: "https://api.lorem.space/image/face?w=640&h=480&r=6751"
-    //     }
-    // )
-
-    console.log(testPush1) // expect to see 0
-    //console.log(testPush2) // expect to see 1
+    //console.log(testPush1) // expect to see 0
+    console.log(testPush2) // expect to see 1
 
    // console.log(users) // expect too see 2 more users added in the end of array*/
     }; 
