@@ -4,8 +4,9 @@ import { Customers } from "./common";
 
 export class Customer implements Customers{
         static key:number = 1
+        id=0;
         transactions:Array<Transactions>
-        constructor(private name:string|null,private id:number=0){   
+        constructor(private name:string){   
             this.name =name;
             this.id = Customer.key++;
             this.transactions = [];
