@@ -1,5 +1,5 @@
 import { Transactions } from "./common";
-export class Transaction implements Partial<Transactions>{
+export class Transaction implements Transactions{
     amount:number
     transactiondate:Date
     constructor(amount:number){

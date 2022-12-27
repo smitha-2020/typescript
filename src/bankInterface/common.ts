@@ -1,7 +1,8 @@
 
 export interface Branchs{
-    name:string
-    customers?:Array<Customers>
+    getName():string|null,
+    getCustomers():Array<Customers> |null,
+    customers:Array<Customers>
 }
 export interface Customers{
     getName():string| null

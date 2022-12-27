@@ -1,6 +1,6 @@
 import { Entity } from "./common";
 
-interface category{
+interface Category{
       id: number
       name: string
       image: string
@@ -12,7 +12,7 @@ id: number
 title: string
 price: number
 description:string
-category: category
+category: Category
 images: string[]
 }
 

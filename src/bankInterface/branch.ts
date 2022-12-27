@@ -2,9 +2,8 @@ import { Customers } from "./common"
 import { Branchs } from "./common";
 
 export class Branch implements Partial<Branchs>{
-    name:string
     customers:Array<Customers>
-    constructor(name:string,customers?:Array<Customers>){
+    constructor(private name:string|null){
         this.name =name;
         this.customers = []
     }
@@ -14,8 +13,10 @@ export class Branch implements Partial<Branchs>{
     getCustomers(){
         return this.customers;
     }
-    addCustomer(customer:Customers):boolean{
-        return this.customers.push(customer) ? true:false;
+    addCustomer(customer:Customers){
+        if(!this.customers.some((cust) => cust.getName() === customer.getName())){
+            return this.customers.push(customer) ? true:null;
+        } 
     }
     findCustomer(customerid:number){
         this.customers.map((ele)=>{
