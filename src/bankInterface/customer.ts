@@ -33,7 +33,6 @@ export class Customer implements Customers{
             console.log(this.getBalance())
             if(balance+amount > 0){
                 const t:Transactions= new Transaction(amount);
-                console.log(this)
                 this['transactions'].push(t)
                 return true;
             }
